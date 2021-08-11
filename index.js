@@ -1,6 +1,7 @@
 const { Engine, Render, Runner, World, Bodies, Body} = Matter;
 
 const engine = Engine.create();
+engine.world.gravity.y=0;
 const { world } = engine;
 
 const cells=10;
