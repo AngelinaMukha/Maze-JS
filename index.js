@@ -156,7 +156,7 @@ const ball=Bodies.circle(
   unitLength/2,
   unitLength/2,
   unitLength/4,
-  {isStatic: true,
+  {//isStatic: true,
     render:{
       fillStyle: 'yellow'
     }}
@@ -164,17 +164,22 @@ const ball=Bodies.circle(
 World.add(world,ball);
 
 document.addEventListener('keydown', event =>{
-
+  const {x,y}=ball.velocity;
+  console.log(x,y);
   if(event.keyCode === 38){
+    Body.setVelocity(ball, {x,y:y-5});
     console.log('up');
   }
   if(event.keyCode === 40){
+    Body.setVelocity(ball, {x,y:y+5});
     console.log('down');
   }
   if(event.keyCode === 37){
+    Body.setVelocity(ball, {x:x-5,y});
     console.log('left');
   }
   if(event.keyCode === 39){
+    Body.setVelocity(ball, {x:x+5,y});
     console.log('right');
   }
 }
